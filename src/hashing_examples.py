@@ -6,7 +6,6 @@ for counting, grouping, and aggregating backend data.
 """
 
 def count_failed_logins(logs: list[tuple[str, bool]]) -> dict[str, int]:
-
 	failed_count_dict = {}
 
 	for (ip, success) in logs:
@@ -17,7 +16,6 @@ def count_failed_logins(logs: list[tuple[str, bool]]) -> dict[str, int]:
 
 
 def detect_suspicious_users_dict(logs: list[tuple[str, str, str, bool]]) -> list[str]:
-
 	suspected_users = set()
 	max_failed_count = 3
 
@@ -37,7 +35,6 @@ def detect_suspicious_users_dict(logs: list[tuple[str, str, str, bool]]) -> list
 
 
 def get_critical_ips(feed: list[dict[str, str]]) -> list[str]:
-
 	ip_list = []
 	ip_seen = set()
 
@@ -53,8 +50,8 @@ def get_critical_ips(feed: list[dict[str, str]]) -> list[str]:
 
 
 def group_events(events: list[tuple[str, str]]) -> dict[str, list[str]]:
-
 	grouped_events = {}
+
 	for ip, event_type in events:
 		grouped_events[ip] = grouped_events.get(ip, [])
 		grouped_events[ip].append(event_type)

@@ -12,11 +12,9 @@ from collections import deque
 
 
 def has_events_in_window(events: list[tuple[str, int]]) -> bool:
-
 	queue = deque()
 
 	for event in events:
-
 		queue.append(event)
 		timestamp = event[1]
 
@@ -30,7 +28,6 @@ def has_events_in_window(events: list[tuple[str, int]]) -> bool:
 
 
 def recent_critical_alerts(alerts: list[tuple[str, str]]) -> list[str]:
-
 	recent_alerts = deque(maxlen=5)
 
 	for (severity, alert_type) in alerts:
@@ -41,14 +38,13 @@ def recent_critical_alerts(alerts: list[tuple[str, str]]) -> list[str]:
 
 
 def detect_suspicious_users_counter(failed_logins: list[str]) -> list[str]:
-
 	counter = Counter(failed_logins)
 	max_failed = 3
+
 	return [user for user, failures in counter.items() if failures >= max_failed]
 
 
 def get_user_activity(events: list[tuple[str, str]]) -> dict[str, list[str]]:
-
 	user_activity = defaultdict(list)
 
 	for user, user_action in events:
@@ -58,7 +54,6 @@ def get_user_activity(events: list[tuple[str, str]]) -> dict[str, list[str]]:
 
 
 def get_unique_user_activity(events: list[tuple[str, str]]) -> dict[str, set[str]]:
-
 	user_activity = defaultdict(set)
 
 	for user, user_action in events:
